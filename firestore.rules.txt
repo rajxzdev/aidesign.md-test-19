@@ -1,0 +1,40 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // users/{uid} — profil user (Google OAuth)
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      // Bikin sendiri pas pertama login
+      allow create: if request.auth != null && request.auth.uid == userId;
+      // Update cuma data sendiri
+      allow update: if request.auth != null && request.auth.uid == userId;
+      allow delete: if false;
+    }
+
+    // cache/{hash} — hasil DESIGN.md (dibaca user, ditulis server pake Client SDK)
+    match /cache/{hash} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null; // server pake Client SDK
+    }
+
+    // analyses/{id} — log analisis (dibaca admin, ditulis server)
+    match /analyses/{analysisId} {
+      allow read: if request.auth != null &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+      allow write: if request.auth != null;
+    }
+
+    // userRatelimits/{uid} — cooldown 20 menit
+    match /userRatelimits/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Default: deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
