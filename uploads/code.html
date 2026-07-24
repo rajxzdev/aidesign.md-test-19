@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - aidesign.md</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#0066ff",
+                    "on-surface-variant": "#c2c6d8",
+                    "surface-variant": "#353437",
+                    "on-primary-fixed": "#001849",
+                    "surface-elevated": "#18181B",
+                    "on-secondary-fixed": "#002113",
+                    "secondary-container": "#00a572",
+                    "border-subtle": "#27272A",
+                    "on-secondary": "#003824",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "on-primary-container": "#f8f7ff",
+                    "text-muted": "#A1A1AA",
+                    "on-tertiary-container": "#fdf6ff",
+                    "surface-bright": "#39393b",
+                    "glass-fill": "rgba(24, 24, 27, 0.7)",
+                    "inverse-on-surface": "#313032",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#424656",
+                    "on-tertiary-fixed": "#23005c",
+                    "surface-tint": "#b3c5ff",
+                    "inverse-surface": "#e5e1e4",
+                    "surface-container-high": "#2a2a2c",
+                    "background": "#131315",
+                    "surface-container-low": "#1c1b1d",
+                    "on-error": "#690005",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "on-primary-fixed-variant": "#003fa4",
+                    "outline": "#8c90a1",
+                    "surface-container-lowest": "#0e0e10",
+                    "on-primary": "#002b75",
+                    "primary": "#b3c5ff",
+                    "tertiary-container": "#8252ec",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-secondary-container": "#00311f",
+                    "secondary": "#4edea3",
+                    "surface-container": "#201f22",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-background": "#e5e1e4",
+                    "surface-dim": "#131315",
+                    "surface": "#131315",
+                    "on-tertiary": "#3c0091",
+                    "tertiary-fixed": "#e9ddff",
+                    "error": "#ffb4ab",
+                    "primary-fixed": "#dae1ff",
+                    "surface-container-highest": "#353437",
+                    "tertiary": "#d0bcff",
+                    "on-surface": "#e5e1e4",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#005236",
+                    "inverse-primary": "#0054d6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "1rem",
+                    "gutter": "1.5rem",
+                    "container-max": "1200px",
+                    "stack-xs": "0.5rem",
+                    "stack-xl": "4rem",
+                    "stack-md": "1.5rem"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter", "sans-serif"],
+                    "headline-lg": ["Geist", "sans-serif"],
+                    "label-caps": ["Inter", "sans-serif"],
+                    "code-md": ["JetBrains Mono", "monospace"],
+                    "body-lg": ["Inter", "sans-serif"],
+                    "headline-md": ["Geist", "sans-serif"],
+                    "headline-lg-mobile": ["Geist", "sans-serif"],
+                    "body-sm": ["Inter", "sans-serif"],
+                    "display": ["Geist", "sans-serif"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "code-md": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: #09090B; /* Deepest black background */
+        }
+        .glass-card {
+            background: rgba(24, 24, 27, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid #27272A;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .glow-effect {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 102, 255, 0.15) 0%, rgba(0,0,0,0) 70%);
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .auth-button {
+            transition: all 0.2s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .auth-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .auth-button:hover::before {
+            left: 100%;
+        }
+
+        .auth-button:hover {
+            box-shadow: 0 4px 20px rgba(0, 102, 255, 0.3);
+            border-color: #0066ff;
+            background-color: rgba(0, 102, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="text-on-background min-h-screen flex items-center justify-center font-body-md text-body-md antialiased overflow-hidden relative selection:bg-primary-container/30 selection:text-primary">
+<!-- Subtle background noise/texture could go here if needed, keeping it clean for now -->
+<div class="fixed inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDkwOTBCIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMSkiPjwvcmVjdD4KPC9zdmc+')] opacity-50 z-[-1] pointer-events-none"></div>
+<main class="w-full max-w-[420px] px-margin-mobile relative z-10">
+<div class="glass-card rounded-xl p-stack-md flex flex-col items-center text-center relative overflow-hidden">
+<!-- Decorative Glow -->
+<div class="glow-effect"></div>
+<!-- Logo / Brand Anchor -->
+<div class="mb-stack-md pt-stack-xs">
+<h1 class="font-headline-lg text-headline-lg md:font-headline-lg md:text-headline-lg font-bold tracking-tight text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1; font-size: 32px;">code_blocks</span>
+                    aidesign.md
+                </h1>
+</div>
+<!-- Subtitle -->
+<p class="font-body-md text-body-md text-text-muted mb-stack-xl max-w-[280px]">
+                The automated bridge between code and design.
+            </p>
+<!-- Action Area -->
+<div class="w-full flex flex-col gap-4">
+<button class="auth-button w-full flex items-center justify-center gap-3 py-3 px-4 bg-surface-elevated border border-border-subtle rounded-lg text-on-background font-code-md text-code-md group focus:outline-none focus:ring-2 focus:ring-primary-container/50">
+<!-- Custom Google 'G' Icon (approximated with standard shape for clean look, usually an SVG would go here in prod) -->
+<svg class="w-5 h-5 text-on-background group-hover:text-primary-container transition-colors" fill="currentColor" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                    Continue with Google
+                </button>
+</div>
+<!-- Security Trust Indicator -->
+<div class="mt-stack-md pt-stack-xs border-t border-border-subtle w-full flex items-center justify-center gap-2 text-text-muted opacity-80">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-label-caps text-label-caps">Secure Authentication</span>
+</div>
+</div>
+</main>
+<!-- Optional: Minimal Footer/Links for auth page -->
+<div class="absolute bottom-stack-md w-full text-center">
+<p class="font-body-sm text-body-sm text-text-muted/60">
+            By continuing, you agree to our <a class="text-text-muted hover:text-on-background transition-colors hover:underline" href="#">Terms</a> &amp; <a class="text-text-muted hover:text-on-background transition-colors hover:underline" href="#">Privacy Policy</a>
+</p>
+</div>
+</body></html>
